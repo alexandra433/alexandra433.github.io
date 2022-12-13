@@ -2,3 +2,68 @@
   Date: Dec. 16, 2022
   Description
 */
+
+main {
+  position: absolute;
+  left: 20%;
+  padding-left: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+nav li {
+  margin: 10px;
+  padding-right: 20px;
+}
+
+nav p {
+  font-size: 25px;
+}
+
+#navigation {
+  flex-direction: column;
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  padding: 20px;
+}
+
+#tutorial-links {
+  display: flex;
+  justify-content: space-around;
+}
+
+#indented-list {
+  padding-left: 10px;
+}
+
+#game-images {
+  display: flex;
+}
+
+#game-images img {
+  height: 30vw;
+  padding-left: 1%;
+}
+
+nav a:hover {
+  background-color: rgba(129, 54, 69, 0.207)
+}
+
+nav a, nav a:visited {
+  text-decoration: none;
+  color: black
+}
+
+.tutorial-section img {
+  width: 50vw;
+  height: 100%;
+}
+
+#intro img {
+  width: 20vw;
+  height: 100%;
+}

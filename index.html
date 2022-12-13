@@ -11,15 +11,31 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <div id="mySidenav" class="sidenav">
-    </div>
+    <section id="navigation">
+      <nav>
+        <p>Table of Contents:</p>
+        <section>
+          <ul>
+            <li>
+              <a href="#section-one">Building the Animator Controller</a>
+              <ul id="indented-list">
+                <li><a href="walking">Walking Animation</a></li>
+                <li><a href="death">Death Animation</a></li>
+              </ul>
+            </li>
+            <li><a href="#section-two">Setting the animation trigger in the Enemy script</a></li>
+            <li><a href="#section-three">Attach a script to Springtrap</a></li>
+          </ul>
+        </section>
+      </nav>
+    </section>
     <main>
-      <h1>Adding an Enemy Part 2: Finishing the Animation and Script</h1>
-      <section>
-        <p>Previous</p>
-        <p>Next</p>
+      <h1 id="top">Adding an Enemy Part 2: Finishing the Animation and Script</h1>
+      <section id="tutorial-links">
+        <p><a href="">Previous</a></p>
+        <p><a href="">Next</a></p>
       </section>
-      <section>
+      <section id="intro">
         <p>In Part 1, we started working on our first enemy, Springtrap.</p>
         <img src="img/springtrap.jpg" alt="Springtrap sprite">
         <p>
@@ -28,7 +44,7 @@
           animation.
         </p>
       </section>
-      <section>
+      <section id="section-one" class="tutorial-section">
         <h2>Building the Animator Controller</h2>
         <p>
           Open the Springtrap <span>Animator Controller</span> that we created previously
@@ -38,7 +54,7 @@
           blocks for the walking and death animations we created last time.
         </p>
         <img src="img/animator-view.jpg" alt="The animation state machine for Springtrap">
-        <h3>Walking Animation</h3>
+        <h3 id="walking">Walking Animation</h3>
         <p>
           By default, the <span>Animation State Machine</span> (the graph) has the walking animation
           linked to <span>Entry</span>. This means that the walking animation will play
@@ -48,7 +64,7 @@
           (If the walking animation is not linked to <span>Entry</span>by default, right-click the
           walking animation and select <span>Set as Layer Default State</span>.)
         </p>
-        <h3>Death Animation</h3>
+        <h3 id="death">Death Animation</h3>
         <p>We also want Springtrap's death animation to play when he dies.</p>
         <p>
           We do this by adding a transition between the walking animation and
@@ -76,7 +92,7 @@
         </p>
         <img src="img/die-trigger3.jpg" alt="Death transition with Die trigger added">
       </section>
-      <section>
+      <section id="section-two" class="tutorial-section">
         <h2>Setting the animation trigger in the Enemy script</h2>
         <p>Now we need to set this trigger in our enemy script.</p>
         <p>
@@ -102,7 +118,7 @@
         <p>Now the <span>Enemy.cs</span> script should look like this:</p>
         <!--Code here-->
       </section>
-      <section>
+      <section id="section-three" class="tutorial-section">
         <h2>Attach a script to Springtrap</h2>
         <p>The last thing we need to do is to attach a script to Springtrap.</p>
         <p>
@@ -166,10 +182,11 @@
           Since we aren't adding any special behaviors to Springtrap,
           this is all we need for now.
         </p>
-        <section>
+        <section id="game-images">
           <img src="img/game-play1.jpg" alt="Gameplay 1">
           <img src="img/game-play2.jpg" alt="Gameplay 2">
         </section>
+        <p><a href="#top">Back to top</a></p>
       </section>
     </main>
   </body>
