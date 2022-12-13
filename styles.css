@@ -10,7 +10,7 @@ body {
 main {
   position: absolute;
   left: 20%;
-  padding-left: 10px;
+  margin-left: 3%;
   margin-right: 10%;
   font-size: 18px;
 }
