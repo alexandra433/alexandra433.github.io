@@ -28,7 +28,7 @@
                 Setting the animation trigger in the Enemy script
               </a>
             </li>
-            <li><a href="#section-three" class="internal">Attach a script to Springtrap</a></li>
+            <li><a href="#section-three" class="internal">Attaching a script to Springtrap</a></li>
           </ul>
         </section>
       </nav>
@@ -36,11 +36,13 @@
     <main>
       <h1 id="top">Adding an Enemy Part 2: Finishing the Animation and Script</h1>
       <section id="tutorial-links">
-        <p><a href="">Previous</a></p>
-        <p><a href="">Next</a></p>
+        <p><a href="second-page.html">Previous</a></p>
+        <p><a href="second-page.html">Next</a></p>
       </section>
       <section id="intro">
-        <p>In Part 1, we started working on our first enemy, Springtrap.</p>
+        <p>
+          In <a href="second-page.html">Part 1</a>, we started working on our first enemy, Springtrap.
+        </p>
         <img src="img/springtrap.jpg" alt="Springtrap sprite">
         <p>
           We have created the animations that the
@@ -107,7 +109,7 @@
         <h2>Setting the animation trigger in the Enemy script</h2>
         <p>Now we need to set this trigger in our enemy script.</p>
         <p>
-          Open the <span>Enemy.cs</span> script we wrote in <a href="">Part 1</a>
+          Open the <span>Enemy.cs</span> script we wrote in <a href="second-page.html">Part 1</a>
           (<span>Assets > Scripts</span>).
         </p>
         <p>This is what you should have:</p>
@@ -188,7 +190,7 @@
                 }
           </code>
         </pre>
-        <p>Add these three lines of code to the empty <span>Die()</span> function:</p>
+        <p>Add these three lines of code to the empty <span class="code">Die()</span> function:</p>
         <pre>
           <code>
             animator.SetTrigger("Die");
@@ -291,7 +293,7 @@
         </pre>
       </section>
       <section id="section-three" class="tutorial-section">
-        <h2>Attach a script to Springtrap</h2>
+        <h2>Attaching a script to Springtrap</h2>
         <p>The last thing we need to do is to attach a script to Springtrap.</p>
         <p>
           We won't be attaching the <span class="code">Enemy.cs</span> script to

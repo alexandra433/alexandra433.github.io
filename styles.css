@@ -4,15 +4,19 @@
 */
 
 body {
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
   position: absolute;
   left: 20%;
   padding-left: 10px;
-  margin-right: 5%;
+  margin-right: 10%;
   font-size: 18px;
+}
+
+h1, h2, h3 {
+  text-decoration: underline;
 }
 
 nav ul {
@@ -29,6 +33,10 @@ nav li {
 nav p {
   font-size: 25px;
   text-decoration: underline;
+}
+
+pre {
+  background-color:rgba(240, 248, 255, 0.742);
 }
 
 .bold {
@@ -68,12 +76,12 @@ nav p {
 }
 
 a:hover {
-  background-color: rgba(129, 54, 69, 0.207)
+  background-color: rgba(129, 54, 69, 0.207);
 }
 
 .internal, .internal:visited {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 .tutorial-section img {
