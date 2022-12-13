@@ -111,9 +111,91 @@
           (<span>Assets > Scripts</span>).
         </p>
         <p>This is what you should have:</p>
-        <!--Code here-->
+        <pre>
+          <code>
+            using System.Collections;
+            using System.Collections.Generic;
+            using UnityEngine;
+
+            public abstract class Enemy : MonoBehaviour {
+                protected int health;
+                protected float speed;
+                protected Animator animator;
+                protected Rigidbody2D rb;
+                protected Transform player;
+                protected float playerSpeed = 2f;
+                protected Vector2 movement; // The direction that the enemy should move in
+
+                // Initialize the enemy
+                protected virtual void Awake() {
+                    rb = GetComponent&ltRigidbody2D&gt();
+                    animator = GetComponent&ltAnimator&gt();
+                    player = GameObject.FindWithTag("Player").transform;
+                }
+
+                // Uses the player's current position to calculate the direction the enemy
+                // should move in to reach that position.
+                protected virtual void Update() {
+                    // transform.position is the position of the enemy
+                    if (player != null) {
+                        Vector2 direction = player.position - transform.position;
+                        direction.Normalize();
+                        movement = direction;
+                    } else {
+                        // Stop moving
+                        movement = Vector2.zero;
+                    }
+                }
+
+                protected virtual void FixedUpdate() {
+                    Move();
+                }
+
+                protected virtual void Move() {
+                    // Randomly choose to move in x direction or y direction
+                    int randomNum = Random.Range(0, 2);
+                    Vector2 position = transform.position;
+                    if (randomNum == 0) {
+                        // move along x-axis
+                        position.x = position.x + (movement.x * speed * Time.deltaTime);
+                    } else {
+                        // move along y-axis
+                        position.y = position.y + (movement.y * speed * Time.deltaTime);
+                    }
+                    rb.MovePosition(position);
+                }
+
+                // Decreases the health of the enemy by the given amount.
+                public void DecreaseHealth(int healthLost) {
+                    health = health - healthLost;
+                    if (health &lt= 0) {
+                        Die();
+                    }
+                }
+
+                // Removes the enemy from the game and plays its death animation.
+                public void Die() {
+                  // TODO
+                }
+
+                // Player dies after colliding with an enemy.
+                protected virtual void OnCollisionEnter2D(Collision2D other) {
+                    // Debug.Log("Enemy Collision with " + other.gameObject);
+                    PlayerController p = other.gameObject.GetComponent&ltPlayerController&gt();
+                        if (p != null) {
+                            p.Die();
+                        }
+                }
+          </code>
+        </pre>
         <p>Add these three lines of code to the empty <span>Die()</span> function:</p>
-        <!--Code here-->
+        <pre>
+          <code>
+            animator.SetTrigger("Die");
+            Destroy(GetComponent&ltBoxCollider&gt());
+            Destroy(gameObject, 0.4f);
+          </code>
+        </pre>
         <p>The first line activates the Die trigger, causing the
           <span>Animator Controller</span> to stop playing the walking
           animation and start playing the death animation instead. The enemy is
@@ -128,7 +210,85 @@
           animation once).
         </p>
         <p>Now the <span class="code">Enemy.cs</span> script should look like this:</p>
-        <!--Code here-->
+        <pre>
+          <code>
+            using System.Collections;
+            using System.Collections.Generic;
+            using UnityEngine;
+
+            public abstract class Enemy : MonoBehaviour {
+                protected int health;
+                protected float speed;
+                protected Animator animator;
+                protected Rigidbody2D rb;
+                protected Transform player;
+                protected float playerSpeed = 2f;
+                protected Vector2 movement; // The direction that the enemy should move in
+
+                // Initialize the enemy
+                protected virtual void Awake() {
+                    rb = GetComponent&ltRigidbody2D&gt();
+                    animator = GetComponent&ltAnimator&gt();
+                    player = GameObject.FindWithTag("Player").transform;
+                }
+
+                // Uses the player's current position to calculate the direction the enemy
+                // should move in to reach that position.
+                protected virtual void Update() {
+                    // transform.position is the position of the enemy
+                    if (player != null) {
+                        Vector2 direction = player.position - transform.position;
+                        direction.Normalize();
+                        movement = direction;
+                    } else {
+                        // Stop moving
+                        movement = Vector2.zero;
+                    }
+                }
+
+                protected virtual void FixedUpdate() {
+                    Move();
+                }
+
+                protected virtual void Move() {
+                    // Randomly choose to move in x direction or y direction
+                    int randomNum = Random.Range(0, 2);
+                    Vector2 position = transform.position;
+                    if (randomNum == 0) {
+                        // move along x-axis
+                        position.x = position.x + (movement.x * speed * Time.deltaTime);
+                    } else {
+                        // move along y-axis
+                        position.y = position.y + (movement.y * speed * Time.deltaTime);
+                    }
+                    rb.MovePosition(position);
+                }
+
+                // Decreases the health of the enemy by the given amount.
+                public void DecreaseHealth(int healthLost) {
+                    health = health - healthLost;
+                    if (health &lt= 0) {
+                        Die();
+                    }
+                }
+
+                // Removes the enemy from the game and plays its death animation.
+                public void Die() {
+                  animator.SetTrigger("Die");
+                  Destroy(GetComponent&ltBoxCollider&gt());
+                  Destroy(gameObject, 0.4f);
+                }
+
+                // Player dies after colliding with an enemy.
+                protected virtual void OnCollisionEnter2D(Collision2D other) {
+                    // Debug.Log("Enemy Collision with " + other.gameObject);
+                    PlayerController p = other.gameObject.GetComponent&ltPlayerController&gt();
+                        if (p != null) {
+                            p.Die();
+                        }
+                }
+          </code>
+        </pre>
       </section>
       <section id="section-three" class="tutorial-section">
         <h2>Attach a script to Springtrap</h2>
@@ -170,7 +330,16 @@
           does not need to be overridden.
         </p>
         <p>This is what <span class="code">SpringtrapController.cs</span> should look like now:</p>
-        <!--Code here-->
+        <pre>
+          <code>
+            using System.Collections;
+            using System.Collections.Generic;
+            using UnityEngine;
+
+            public class SpringtrapController : Enemy {
+            }
+          </code>
+        </pre>
         <p>
           We need to set the health and speed fields for Springtrap. (Notice that
           these two fields were not assigned to any values in <span class="code">Enemy.cs</span>.)
@@ -183,7 +352,14 @@
           in <span class="code">SpringtrapController.cs</span> with
           the <span class="code">override</span> keyword.
         </p>
-        <!--Code here-->
+        <pre>
+          <code>
+            protected override void Awake() {
+              health = 1;
+              speed = 0.85f * playerSpeed;
+            }
+          </code>
+        </pre>
         <p>
           However, we also want the code inside the <span  class="code">Awake()</span>
           function in <span class="code">Enemy.cs</span> to run. We can do this by adding
@@ -191,7 +367,22 @@
           function in <span class="code">SpringtrapController.cs</span>.
         </p>
         <p>Now the <span class="code">SpringtrapController.cs</span> looks like this.</p>
-        <!--Code here-->
+        <pre>
+          <code>
+            using System.Collections;
+            using System.Collections.Generic;
+            using UnityEngine;
+
+            public class SpringtrapController : Enemy {
+
+                protected override void Awake() {
+                    base.Awake();
+                    health = 1;
+                    speed = 0.85f * playerSpeed;
+                }
+            }
+          </code>
+        </pre>
       </section>
       <section>
         <p>
