@@ -3,10 +3,16 @@
   Description
 */
 
+body {
+  font-family: Arial, Helvetica, sans-serif
+}
+
 main {
   position: absolute;
   left: 20%;
   padding-left: 10px;
+  margin-right: 5%;
+  font-size: 18px;
 }
 
 nav ul {
@@ -17,10 +23,21 @@ nav ul {
 nav li {
   margin: 10px;
   padding-right: 20px;
+  font-size: 18px;
 }
 
 nav p {
   font-size: 25px;
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.code {
+  background-color: aliceblue;
+  font-family:'Courier New', Courier, monospace;
 }
 
 #navigation {
@@ -34,6 +51,7 @@ nav p {
 #tutorial-links {
   display: flex;
   justify-content: space-around;
+  font-size: 20px;
 }
 
 #indented-list {
@@ -45,15 +63,15 @@ nav p {
 }
 
 #game-images img {
-  height: 30vw;
+  height: 25vw;
   padding-left: 1%;
 }
 
-nav a:hover {
+a:hover {
   background-color: rgba(129, 54, 69, 0.207)
 }
 
-nav a, nav a:visited {
+.internal, .internal:visited {
   text-decoration: none;
   color: black
 }

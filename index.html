@@ -17,14 +17,18 @@
         <section>
           <ul>
             <li>
-              <a href="#section-one">Building the Animator Controller</a>
+              <a href="#section-one" class="internal">Building the Animator Controller</a>
               <ul id="indented-list">
-                <li><a href="walking">Walking Animation</a></li>
-                <li><a href="death">Death Animation</a></li>
+                <li><a href="walking" class="internal">Walking Animation</a></li>
+                <li><a href="death" class="internal">Death Animation</a></li>
               </ul>
             </li>
-            <li><a href="#section-two">Setting the animation trigger in the Enemy script</a></li>
-            <li><a href="#section-three">Attach a script to Springtrap</a></li>
+            <li>
+              <a href="#section-two" class="internal">
+                Setting the animation trigger in the Enemy script
+              </a>
+            </li>
+            <li><a href="#section-three" class="internal">Attach a script to Springtrap</a></li>
           </ul>
         </section>
       </nav>
@@ -39,30 +43,31 @@
         <p>In Part 1, we started working on our first enemy, Springtrap.</p>
         <img src="img/springtrap.jpg" alt="Springtrap sprite">
         <p>
-          We have created the animations that the <span>Animator Controller</span> will use for
-          Springtrap. Now we need to tell the <span>Animator Controller</span> when to play each
-          animation.
+          We have created the animations that the
+          <span class="bold">Animator Controller</span> will use for
+          Springtrap. Now we need to tell the
+          <span class="bold">Animator Controller</span> when to play each animation.
         </p>
       </section>
       <section id="section-one" class="tutorial-section">
         <h2>Building the Animator Controller</h2>
         <p>
-          Open the Springtrap <span>Animator Controller</span> that we created previously
-          <span>(Assets > Prefabs > Enemies > Animations)</span> in the
-          <span>Animator window</span>. In addition to the <span>Any State</span>,
-          <span>Entry</span>, and <span>Exit blocks</span>, we should see two other
-          blocks for the walking and death animations we created last time.
+          Open the Springtrap <span class="bold">Animator Controller</span> that we created
+          previously <span class="bold">(Assets > Prefabs > Enemies > Animations)</span> in the
+          <span>Animator window</span>. In addition to the <span class="bold">Any State</span>,
+          <span class="bold">Entry</span>, and <span class="bold">Exit</span> blocks, we
+          should see two other blocks for the walking and death animations we created last time.
         </p>
         <img src="img/animator-view.jpg" alt="The animation state machine for Springtrap">
         <h3 id="walking">Walking Animation</h3>
         <p>
-          By default, the <span>Animation State Machine</span> (the graph) has the walking animation
-          linked to <span>Entry</span>. This means that the walking animation will play
+          By default, the <span class="bold">Animation State Machine</span> (the graph) has the walking animation
+          linked to <span class="bold">Entry</span>. This means that the walking animation will play
           when the game starts, which is what we want.
         </p>
         <p>
-          (If the walking animation is not linked to <span>Entry</span>by default, right-click the
-          walking animation and select <span>Set as Layer Default State</span>.)
+          (If the walking animation is not linked to <span class="bold">Entry</span> by default,
+          right-click the walking animation and select <span class="bold">Set as Layer Default State</span>.)
         </p>
         <h3 id="death">Death Animation</h3>
         <p>We also want Springtrap's death animation to play when he dies.</p>
@@ -70,7 +75,10 @@
           We do this by adding a transition between the walking animation and
           the death animation, then assigning a trigger to the transition.
         </p>
-        <p>First, right-click the walking animation and select Make Transition.</p>
+        <p>
+          First, right-click the walking animation and select
+          <span class="bold">Make Transition.</span>
+        </p>
         <img src="img/make-transition.jpg" alt="Selecting the Make Transition option">
         <p>
           A white arrow that follows your cursor should appear. Click on
@@ -82,7 +90,10 @@
           Select <span>Trigger</span>. Name this trigger “Die.”
         </p>
         <img src="img/select-trigger.jpg" alt="Selecting the trigger option">
-        <p>Now click on the arrow for the death transition and look at it in the Inspector tab.</p>
+        <p>
+          Now click on the death transition (the arrow) and look at it
+          in the <span class="bold">Inspector</span> tab.
+        </p>
         <img src="img/die-trigger2.jpg" alt="Viewing death transition in Inspector tab">
         <p>
           In the <span>Conditions</span> section, click the plus sign under the words
@@ -108,73 +119,78 @@
           animation and start playing the death animation instead. The enemy is
           considered dead once the death animation starts playing, and we don't
           want the player to die from colliding with a dying enemy, so we remove the enemy
-          character's box collider with Destroy(GetComponent<BoxCollider>()).
+          character's box collider with
+          <span class="code">Destroy(GetComponent&ltBoxCollider&gt())</span>.
         </p>
         <p>
-          Lastly, we remove the rest of the enemy GameObject from the game
+          Lastly, we remove the rest of the enemy <span>GameObject</span> from the game
           after 0.4 seconds (the length of time it takes to play the death
           animation once).
         </p>
-        <p>Now the <span>Enemy.cs</span> script should look like this:</p>
+        <p>Now the <span class="code">Enemy.cs</span> script should look like this:</p>
         <!--Code here-->
       </section>
       <section id="section-three" class="tutorial-section">
         <h2>Attach a script to Springtrap</h2>
         <p>The last thing we need to do is to attach a script to Springtrap.</p>
         <p>
-          We won't be attaching the <span>Enemy</span> script to Springtrap, because as
-          explained in Part 1 the <span>Enemy</span> script defines a base class
-          <span>Enemy</span> that our enemy characters will inherit.
+          We won't be attaching the <span class="code">Enemy.cs</span> script to
+          Springtrap, because as explained in Part 1 the
+          <span class="code">Enemy.cs</span> script defines a base class
+          <span class="code">Enemy</span> that our enemy characters will inherit.
         </p>
         <p>
-          Instead, create a new script (right-click in the <span>Scripts</span>
-          folder and select <span>Create > C# script</span>) and name it
+          Instead, create a new script (right-click in the <span class="bold">Scripts</span>
+          folder and select <span class="bold">Create > C# script</span>) and name it
           “SpringtrapController.”
         </p>
         <p>
           Select the Springtrap <span>GameObject</span> in the
-          <span>Hierarchy</span> tab and open it in <span>Prefab</span> mode.
-          Drag and drop the <span>SpringtrapController</span> script into
-          the <span>Inspector</span> (as we did with the player character in
+          <span class="bold">Hierarchy</span> tab and open it in <span class="bold">Prefab</span>
+          mode. Drag and drop the <span class="code">SpringtrapController.cs</span> script into
+          the <span class="bold">Inspector</span> (as we did with the player character in
           earlier sections of this <a href="">tutorial</a>) to attach it
           to the Springtrap character.
         </p>
         <img src="img/drag-and-drop-script.jpg" alt="Attaching script to Springtrap">
         <p>
-          Open the <span>SpringtrapController</span> script and change
-          the <span>MonoBehavior</span> keyword in the public class declaration
-          to <span>Enemy</span>. Now the <span>SpringtrapController</span>
+          Open the <span class="code">SpringtrapController.cs</span> script and change
+          the <span class="code">MonoBehavior</span> keyword in the public class declaration
+          to <span class="code">Enemy</span>. Now the <span class="code">SpringtrapController</span>
           class inherits the fields and methods defined in the
-          <span>Enemy</span> script.
+          <span class="code">Enemy.cs</span> script.
         </p>
         <p>
-          Delete the default <span>Start()</span> and <span>Update()</span>
-          functions in <span>SpringtrapController.cs</span>. We are using the
-          <span>Awake()</span> instead of <span>Start()</span>, and
+          Delete the default <span class="code">Start()</span> and
+          <span class="code">Update()</span>
+          functions in <span class="code">SpringtrapController.cs</span>. We are using the
+          <span class="code">Awake()</span> instead of <span class="code">Start()</span>, and
           Springtrap will have the default enemy movement behavior so the
-          <span>Update()</span> function in <span>Enemy.cs</span>
+          <span class="code">Update()</span> function in <span class="code">Enemy.cs</span>
           does not need to be overridden.
         </p>
-        <p>This is what <span>SpringtrapController.cs</span> should look like now:</p>
+        <p>This is what <span class="code">SpringtrapController.cs</span> should look like now:</p>
         <!--Code here-->
         <p>
           We need to set the health and speed fields for Springtrap. (Notice that
-          these two fields were not assigned to any values in <span>Enemy.cs</span>.)
+          these two fields were not assigned to any values in <span class="code">Enemy.cs</span>.)
         </p>
-        <p>We will set these fields in the <span>Awake()</span> function.</p>
+        <p>We will set these fields in the <span class="code">Awake()</span> function.</p>
         <p>
-          The <span>Awake()</span> function defined in <span>Enemy.cs</span>
-          uses the <span>virtual</span> keyword, so we can override this function
-          in <span>SpringtrapController.cs</span> with the <span>override</span> keyword.
+          The <span class="code">Awake()</span> function defined in
+          <span class="code">Enemy.cs</span>
+          uses the <span class="code">virtual</span> keyword, so we can override this function
+          in <span class="code">SpringtrapController.cs</span> with
+          the <span class="code">override</span> keyword.
         </p>
         <!--Code here-->
         <p>
-          However, we also want the code inside the <span>Awake()</span>
-          function in <span>Enemy.cs</span> to run. We can do this by adding
-          the line <span>base.Awake();</span> to the <span>Awake()</span>
-          function in <span>SpringtrapController.cs</span>.
+          However, we also want the code inside the <span  class="code">Awake()</span>
+          function in <span class="code">Enemy.cs</span> to run. We can do this by adding
+          the line <span class="code">base.Awake();</span> to the <span class="code">Awake()</span>
+          function in <span class="code">SpringtrapController.cs</span>.
         </p>
-        <p>Now the <span>SpringtrapController.cs</span> looks like this.</p>
+        <p>Now the <span class="code">SpringtrapController.cs</span> looks like this.</p>
         <!--Code here-->
       </section>
       <section>
@@ -186,7 +202,7 @@
           <img src="img/game-play1.jpg" alt="Gameplay 1">
           <img src="img/game-play2.jpg" alt="Gameplay 2">
         </section>
-        <p><a href="#top">Back to top</a></p>
+        <p><a href="#top" class="internal">Back to top</a></p>
       </section>
     </main>
   </body>
