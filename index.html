@@ -207,7 +207,6 @@
 
                 // Player dies after colliding with an enemy.
                 protected virtual void OnCollisionEnter2D(Collision2D other) {
-                    // Debug.Log("Enemy Collision with " + other.gameObject);
                     PlayerController p = other.gameObject.GetComponent&ltPlayerController&gt();
                         if (p != null) {
                             p.Die();
@@ -226,8 +225,8 @@
         <p>The first line activates the <span class="bold">Die</span> trigger, causing the
           <span class="bold">Animator Controller</span> to stop playing the walking
           animation and start playing the death animation instead. The enemy is
-          considered dead once the death animation starts playing, and we don't
-          want the player to die from colliding with a dying enemy, so we remove the enemy
+          considered dead once the death animation starts playing. Since we don't
+          want the player to die from colliding with a dying enemy, we remove the enemy
           character's box collider with
           <span class="code">Destroy(GetComponent&ltBoxCollider&gt())</span>.
         </p>
@@ -308,7 +307,6 @@
 
                 // Player dies after colliding with an enemy.
                 protected virtual void OnCollisionEnter2D(Collision2D other) {
-                    // Debug.Log("Enemy Collision with " + other.gameObject);
                     PlayerController p = other.gameObject.GetComponent&ltPlayerController&gt();
                         if (p != null) {
                             p.Die();
