@@ -49,7 +49,8 @@
         <img src="img/springtrap.jpg" alt="Springtrap sprite">
         <p>
           We have created the animations that the
-          <span class="bold">Animator Controller</span> will use for
+          <span class="bold"><a href="https://docs.unity3d.com/Manual/AnimatorControllers.html">
+          Animator Controller</a></span> will use for
           Springtrap. Now we need to tell the
           <span class="bold">Animator Controller</span> when to play each animation.
         </p>
@@ -59,14 +60,16 @@
         <p>
           Open the Springtrap <span class="bold">Animator Controller</span> that we created
           previously <span class="bold">(Assets > Prefabs > Enemies > Animations)</span> in the
-          <span>Animator window</span>. In addition to the <span class="bold">Any State</span>,
+          <span class="bold">Animator window</span>. In addition to the <span class="bold">Any State</span>,
           <span class="bold">Entry</span>, and <span class="bold">Exit</span> blocks, we
           should see two other blocks for the walking and death animations we created last time.
         </p>
         <img src="img/animator-view-cropped.jpg" alt="The animation state machine for Springtrap">
         <h3 id="walking">Walking Animation</h3>
         <p>
-          By default, the <span class="bold">Animation State Machine</span> (the graph)
+          By default, the <span class="bold">
+          <a href="https://docs.unity3d.com/Manual/AnimationStateMachines.html">
+          Animation State Machine</a></span>
           has the walking animation linked to <span class="bold">Entry</span>.
           This means that the walking animation will play
           when the game starts, which is what we want.
@@ -78,7 +81,7 @@
         <h3 id="death">Death Animation</h3>
         <p>We also want Springtrap's death animation to play when he dies.</p>
         <p>
-          We do this by adding a transition between the walking animation and
+          We can do this by adding a transition between the walking animation and
           the death animation, then assigning a trigger to the transition.
         </p>
         <p>
@@ -93,7 +96,7 @@
         <img src="img/make-transition2.jpg" alt="Transition between the death and walking animations">
         <p>
           Click the drop-down next to the plus sign in the parameters tab.
-          Select <span>Trigger</span>. Name this trigger “Die.”
+          Select <span class="bold">Trigger</span>. Name this trigger “Die.”
         </p>
         <img src="img/select-trigger.jpg" alt="Selecting the trigger option">
         <p>
@@ -102,9 +105,10 @@
         </p>
         <img src="img/die-trigger2.jpg" alt="Viewing death transition in Inspector tab">
         <p>
-          In the <span>Conditions</span> section, click the plus sign under the words
-          <span>List is Empty</span> to add the <span>Die</span> trigger to the death
-          transition. Also, make sure to uncheck <span>Has Exit Time</span>
+          In the <span class="bold">Conditions</span> section, click the plus sign under the words
+          <span class="bold">List is Empty</span> to add the <span class="bold">Die</span>
+          trigger to the death transition. Also, make sure to uncheck
+          <span class="bold">Has Exit Time</span>
           because we want the death animation to play immediately when Springtrap dies.
         </p>
         <img src="img/die-trigger3.jpg" alt="Death transition with Die trigger added">
@@ -113,8 +117,9 @@
         <h2>Setting the animation trigger in the Enemy script</h2>
         <p>Now we need to set this trigger in our enemy script.</p>
         <p>
-          Open the <span>Enemy.cs</span> script we wrote in <a href="second-page.html">Part 1</a>
-          (<span>Assets > Scripts</span>).
+          Open the <span class="code">Enemy.cs</span> script we wrote in
+          <a href="second-page.html">Part 1</a>
+          (<span class="bold">Assets > Scripts</span>).
         </p>
         <p>This is what you should have:</p>
         <pre>
@@ -202,8 +207,8 @@
             Destroy(gameObject, 0.4f);
           </code>
         </pre>
-        <p>The first line activates the Die trigger, causing the
-          <span>Animator Controller</span> to stop playing the walking
+        <p>The first line activates the <span class="bold">Die</span> trigger, causing the
+          <span class="bold">Animator Controller</span> to stop playing the walking
           animation and start playing the death animation instead. The enemy is
           considered dead once the death animation starts playing, and we don't
           want the player to die from colliding with a dying enemy, so we remove the enemy
@@ -211,8 +216,8 @@
           <span class="code">Destroy(GetComponent&ltBoxCollider&gt())</span>.
         </p>
         <p>
-          Lastly, we remove the rest of the enemy <span>GameObject</span> from the game
-          after 0.4 seconds (the length of time it takes to play the death
+          Lastly, we remove the rest of the enemy <span class="bold">GameObject</span> from the
+          game after 0.4 seconds (the length of time it takes to play the death
           animation once).
         </p>
         <p>Now the <span class="code">Enemy.cs</span> script should look like this:</p>
@@ -315,7 +320,7 @@
           <span class="bold">Hierarchy</span> tab and open it in <span class="bold">Prefab</span>
           mode. Drag and drop the <span class="code">SpringtrapController.cs</span> script into
           the <span class="bold">Inspector</span> (as we did with the player character in
-          earlier sections of this <a href="">tutorial</a>) to attach it
+          <a href="second-page.html">earlier sections</a> of this tutorial) to attach it
           to the Springtrap character.
         </p>
         <img src="img/drag-and-drop-script-arrow.jpg" alt="Attaching script to Springtrap">
