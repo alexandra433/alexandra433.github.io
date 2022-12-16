@@ -1,6 +1,9 @@
 /*
   Date: Dec. 16, 2022
-  Description
+  This file styles the game tutorial page. It makes all the text have the Arial
+  font, centers all the images, places the navigation bar on the side of the page
+  bolds/highlights certain words, makes the background of blocks of code a
+  light blue color, and more.
 */
 
 body {
