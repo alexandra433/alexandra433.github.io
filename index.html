@@ -62,7 +62,9 @@
         <p>
           In <a href="second-page.html">Part 1</a>, we started working on our first enemy: Springtrap.
         </p>
-        <img src="img/springtrap.jpg" alt="Springtrap sprite">
+        <div class="img-container">
+          <img src="img/springtrap.jpg" alt="Springtrap sprite">
+        </div>
         <p>
           We have created the animations that the
           <span class="bold"><a href="https://docs.unity3d.com/Manual/AnimatorControllers.html">
@@ -80,7 +82,9 @@
           <span class="bold">Entry</span>, and <span class="bold">Exit</span> blocks, we
           should see two other blocks for the walking and death animations we created last time.
         </p>
-        <img src="img/animator-view-cropped.jpg" alt="The animation state machine for Springtrap">
+        <div class="img-container">
+          <img src="img/animator-view-cropped.jpg" alt="The animation state machine for Springtrap">
+        </div>
         <h3 id="walking">Walking Animation</h3>
         <p>
           By default, the <span class="bold">
@@ -104,22 +108,30 @@
           First, right-click the walking animation and select
           <span class="bold">Make Transition.</span>
         </p>
-        <img src="img/make-transition.jpg" alt="Selecting the Make Transition option">
+        <div class="img-container">
+          <img src="img/make-transition.jpg" alt="Selecting the Make Transition option">
+        </div>
         <p>
           A white arrow that follows your cursor should appear. Click on
           the death animation to link the two animations together.
         </p>
-        <img src="img/make-transition2.jpg" alt="Transition between the death and walking animations">
+        <div class="img-container">
+          <img src="img/make-transition2.jpg" alt="Transition between the death and walking animations">
+        </div>
         <p>
           Click the drop-down next to the plus sign in the <span class="bold">Parameters</span> tab.
           Select <span class="bold">Trigger</span>. Name this trigger “Die.”
         </p>
-        <img src="img/select-trigger.jpg" alt="Selecting the trigger option">
+        <div class="img-container">
+          <img src="img/select-trigger.jpg" alt="Selecting the trigger option">
+        </div>
         <p>
           Now click on the death transition (the arrow we just added) and look at it
           in the <span class="bold">Inspector</span> tab.
         </p>
-        <img src="img/die-trigger2.jpg" alt="Viewing death transition in Inspector tab">
+        <div class="img-container">
+          <img src="img/die-trigger2.jpg" alt="Viewing death transition in Inspector tab">
+        </div>
         <p>
           In the <span class="bold">Conditions</span> section, click the plus sign under the words
           <span class="bold">List is Empty</span> to add the <span class="bold">Die</span>
@@ -127,7 +139,9 @@
           <span class="bold">Has Exit Time</span>
           because we want the death animation to play immediately when Springtrap dies.
         </p>
-        <img src="img/die-trigger3.jpg" alt="Death transition with Die trigger added">
+        <div class="img-container">
+          <img src="img/die-trigger3.jpg" alt="Death transition with Die trigger added">
+        </div>
       </section>
       <section id="section-two" class="tutorial-section">
         <h2>Setting the animation trigger in the Enemy script</h2>
@@ -339,7 +353,9 @@
           <a href="second-page.html">earlier sections</a> of this tutorial) to attach it
           to the Springtrap character.
         </p>
-        <img src="img/drag-and-drop-script-arrow.jpg" alt="Attaching script to Springtrap">
+        <div class="img-container">
+          <img src="img/drag-and-drop-script-arrow.jpg" alt="Attaching script to Springtrap">
+        </div>
         <p>
           Open the <span class="code">SpringtrapController.cs</span> script and change
           the <span class="code">MonoBehavior</span> keyword in the public class declaration

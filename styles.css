@@ -67,10 +67,6 @@ nav li {
   padding-left: 10px;
 }
 
-#game-images {
-  display: flex;
-}
-
 #top {
   background-color: rgba(244, 236, 236, 0.451);
 }
@@ -92,6 +88,11 @@ h1, h2, h3, #back-to-top {
   text-decoration: underline;
   background-color: rgba(244, 236, 236, 0.451);
   color: rgb(82, 15, 27);
+}
+
+.img-container, #game-images {
+  display: flex;
+  justify-content: center;
 }
 
 a:hover {
