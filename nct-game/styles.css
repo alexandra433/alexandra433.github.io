@@ -1,0 +1,89 @@
+/*
+  Name: Alexandra Hao
+  Date: Oct. 19, 2022
+  Section: AB
+  This is the css file for my CP2 page. It adds color to the elements in the
+  page and displays the images in rows.
+*/
+
+body {
+  background-color: #ECE5F0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  color: #59114D;
+}
+
+button {
+  font-size: 30px;
+  font-family: "Times New Roman", "Times", serif;
+}
+
+body > p {
+  color: #003B36;
+  font-size: 20px;
+}
+
+.identified {
+  filter: grayscale(90%);
+}
+
+.not-visible {
+  visibility: hidden;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#fails {
+  color: #E98A15;
+  text-decoration: underline;
+}
+
+#member-name {
+  color: #59114D;
+  text-decoration: underline;
+}
+
+#images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+#game-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+#game-info p {
+  font-size: 25px;
+  color: #012622;
+}
+
+#images section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #59114D;
+  margin: 5px;
+  opacity: 90%;
+}
+
+#images section img {
+  height: 150px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+#images section p {
+  color: #ECE5F0;
+  font-size: 25px;
+}

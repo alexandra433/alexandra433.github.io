@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+  Name: Alexandra Hao
+  Date: Nov. 4, 2022
+  Section: AB
+  This page sets up the background information and the rules to a simple game
+  inspired by Paper's Please. It also contains elements needed to play the game
+  on the page.
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CP3 Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <section>
+      <h1>Admission, please?</h1>
+      <p>
+        You work in admissions for some weird institution. Your job is to
+        look at candidates and reject those whose information violates the rules
+        given below.
+      </p>
+      <ul>
+        <li>Reject all candidates with first names with four letters or less.</li>
+        <li>
+          Reject all candidates from states that start with "M" unless they are
+          25 years old or older.
+        </li>
+        <li>Reject all candidates with a chosen activity of type "recreational".</li>
+      </ul>
+      <p>Five dollars will be deducted from your pay each time you mess up.</p>
+      <aside>(Yes, this is a Paper's Please spoof.)</aside>
+      <p>
+        APIs used: <a href="https://www.boredapi.com/documentation">Bored API</a> and
+        <a href="https://randomuser.me/">Random User Generator</a>
+      </p>
+      <button id="start-btn">Start your workday</button>
+    </section>
+    <hr>
+    <section id="game-section" class="hidden">
+      <section id="score-info">
+        <p>Correctly processed: <span id="num-processed">0</span></p>
+        <p>Pay deduction: $<span id="deduction">0</span></p>
+      </section>
+      <section>
+        <button id="accept-btn">Accept</button>
+        <button id="reject-btn">Reject</button>
+      </section>
+      <!-- Card with profile information to be populated by Javascript -->
+      <section id="info-card"></section>
+      <section id="error-message" class="hidden">
+        <p>Uh oh, it looks like something went wrong.</p>
+      </section>
+    </section>
+  </body>
+</html>
